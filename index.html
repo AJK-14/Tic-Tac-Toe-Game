@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Black+Ops+One" />
+
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+	</script>
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<style>
+		#SQ1 {
+			height: 140px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ2 {
+			height: 140px;
+			width: 108px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ3 {
+			height: 140px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ4 {
+			height: 108px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ5 {
+			height: 105px;
+			width: 110px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ6 {
+			height: 108px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ7 {
+			height: 140px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ8 {
+			height: 140px;
+			width: 108px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		#SQ9 {
+			height: 140px;
+			width: 185px;
+			background-color: rgb(247, 247, 247);
+		}
+
+		body {
+			background-color: RGB(3, 132, 252);
+		}
+
+		h1 {
+			color: white;
+			text-align: center;
+			font-family: "Black Ops One";
+			font-size: 40px;
+			border-radius: 10px;
+			border: 6px solid black;
+		}
+
+		h2 {
+			color: white;
+			text-align: center;
+			font-family: "Black Ops One";
+			font-size: 20px;
+		}
+
+		#TTTB {
+			border-radius: 10px;
+			border: 6px solid black;
+		}
+	</style>
+	<title>| Tic Tac Toe Game |</title>
+</head>
+<h1>Tic Tac Toe Game!</h1>
+<h2> The Game is Simple: Just select a box and a X will appear marking it as yours! The O is the Computer playing and trying
+	to beat you!<h2>
+
+		<body>
+
+
+			<div id="cont">
+				<!--Tic Tac Toe Board-->
+				<img id="TTTB" SRC="TicTacToeBoard.jpg" IMG STYLE="position:absolute; TOP:180px; LEFT:380px; WIDTH:500px; HEIGHT:405px">
+      <div class="square" id="SQ1" STYLE="position:absolute; TOP: 187px; LEFT: 387px"></div>
+        <div class="square" id="SQ2" STYLE="position:absolute; TOP: 187px; LEFT: 582px"></div>
+        <div class="square" id="SQ3" STYLE="position:absolute; TOP: 187px; LEFT: 700px"></div>
+      <div class="square" id="SQ4" STYLE="position:absolute; TOP: 335px; LEFT: 387px"></div>
+      <div class="square" id="SQ5" STYLE="position:absolute; TOP: 335px; LEFT: 582px"></div>
+      <div class="square" id="SQ6" STYLE="position:absolute; TOP: 335px; LEFT: 700px"></div>
+      <div class="square" id="SQ7" STYLE="position:absolute; TOP: 450px; LEFT: 387px"></div>
+       <div class="square" id="SQ8" STYLE="position:absolute; TOP: 450px; LEFT: 582px"></div>
+   <div class="square" id="SQ9" STYLE="position:absolute; TOP: 450px; LEFT: 700px"></div>
+   </div>
+<script> 
+		window.onload = function() {
+      function checker() {
+       let thename = computerturn().toLowerCase();
+          if ((eval(thename) == true) || (eval("com"+thename[2]) == true) || (eval("comp"+thename[2]) == true)) {
+    
+       checker();
+  } else {
+    eval(`comp${thename[2]} = true`)
+       $("#" + thename.toUpperCase()).html("<span style = 'font-size:40px;color:RGB(3, 132, 252);position:relative; top:5vh;'>O</span>")
+  }
+      }
+      //computerchoice
+      var comp1 = false;
+      var comp2 = false;
+      var comp3 = false;
+      var comp4 = false;
+      var comp5 = false;
+      var comp6 = false;
+      var comp7 = false;
+      var comp8 = false;
+      var comp9 = false;
+      //computer
+        var com1 = false;
+      var com2 = false;
+      var com3 = false;
+      var com4 = false;
+      var com5 = false;
+      var com6 = false;
+      var com7 = false;
+      var com8 = false;
+      var com9 = false;
+      //user
+      var sq1 = false;
+      var sq2 = false;
+      var sq3 = false;
+      var sq4 = false;
+      var sq5 = false;
+      var sq6 = false;
+      var sq7 = false;
+      var sq8 = false;
+      var sq9 = false;
+      $("#cont>*").on("click", function() {
+     setTimeout(function() {
+     if (((sq1 == true) && (sq2 == true) && (sq3 == true)) || ((sq4 == true) && (sq5 == true) && (sq6 == true)) || ((sq7 == true) && (sq8 == true) && (sq9 == true)) || ((sq1 == true) && (sq4 == true) && (sq7 == true)) || ((sq2 == true) && (sq5 == true) && (sq8 == true)) || ((sq3 == true) && (sq6 == true) && (sq9 == true)) || ((sq1 == true) && (sq5 == true) && (sq9 == true)) || ((sq3 == true) && (sq5 == true) && (sq7 == true))) {
+    alert("You won!")
+    location.reload()
+  }
+     },100)
+     setTimeout(function() {
+     if (((comp1 == true) && (comp2 == true) && (comp3 == true)) || ((comp4 == true) && (comp5 == true) && (comp6 == true)) || ((comp7 == true) && (comp8 == true) && (comp9 == true)) || ((comp1 == true) && (comp4 == true) && (comp7 == true)) || ((comp2 == true) && (comp5 == true) && (comp8 == true)) || ((comp3 == true) && (comp6 == true) && (comp9 == true)) || ((comp1 == true) && (comp5 == true) && (comp9 == true)) || ((comp3 == true) && (comp5 == true) && (comp7 == true))) {
+    alert("You lost!");
+    location.reload()
+  }
+
+     },300)
+     setTimeout(function() {
+         if (((sq1 == true) || (comp1 == true)) && ((sq2 == true) || (comp2 == true)) && ((sq3 == true) || (comp3 == true)) && ((sq4 == true) || (comp4 == true)) && ((sq5 == true) || (comp5 == true)) && ((sq6 == true) || (comp6 == true)) && ((sq7 == true) || (comp7 == true)) && ((sq8 == true) || (comp8 == true)) && ((sq9 == true) || (comp9 == true))) {
+    alert("It's a draw!");
+    location.reload();
+  }
+     },600)
+      })
+ 
+  document.querySelector("#SQ1").addEventListener("click", function() {
+  if ((comp1 == false) &&  (sq1 == false)) {
+  sq1 = true;
+  com1 = true;
+  $("#SQ1").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ2").addEventListener("click", function() {
+  
+   if ((comp2 == false) && (sq2 == false)) {
+  sq2 = true;
+    com2 = true;
+  $("#SQ2").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+checker();
+  } else {
+    alert("That space is already taken.")
+  }
+  
+});
+document.querySelector("#SQ3").addEventListener("click", function() {
+  
+  if ((comp3 == false) && (sq3 == false)) {
+  sq3 = true;
+    com3 = true;
+  $("#SQ3").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ4").addEventListener("click", function() {
+  
+  if ((comp4 == false) &&  (sq4 == false)) {
+  sq4 = true;
+    com4 = true;
+  $("#SQ4").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ5").addEventListener("click", function() {
+  
+  if ((comp5 == false) && (sq5 == false)) {
+  sq5 = true;
+    com5 = true;
+  $("#SQ5").html("<span style = 'font-size:40px;color:black;position:relative; top: 5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ6").addEventListener("click", function() {
+  
+  if ((comp6 == false) && (sq6 == false)) {
+  sq6 = true;
+    com6 = true;
+  $("#SQ6").html("<span style = 'font-size:40px;color:black;position:relative; top: 5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ7").addEventListener("click", function() {
+  
+   if ((comp7 == false) && (sq7 == false)) {
+  sq7 = true;
+    com7 = true;
+  $("#SQ7").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+document.querySelector("#SQ8").addEventListener("click", function() {
+  
+  if ((comp8 == false) && (sq8 == false)) {
+  sq8 = true;
+    com8 = true;
+  $("#SQ8").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+})
+document.querySelector("#SQ9").addEventListener("click", function() {
+  
+  if ((comp9 == false) && (sq9 == false)) {
+  sq9 = true;
+   com9 = true;
+  $("#SQ9").html("<span style = 'font-size:40px;color:black;position:relative; top:5vh;'>X</span>")
+  checker();
+  } else {
+    alert("That space is already taken.")
+  }
+});
+function computerturn() {
+var choice = Math.floor(Math.random() * 9);
+//Getting The Computer Choice.
+const getComputerChoice = randomNumber => {
+  switch (randomNumber) {
+    case 0:
+      return 'Sq1';
+      break;
+  case 1:
+      return 'Sq2';
+      break;
+  case 2:
+      return 'Sq3';
+      break;
+  case 3:
+      return 'Sq4';
+      break;
+  case 4:
+      return 'Sq5';
+  break;
+  case 5:
+      return 'Sq6';
+  break;
+  case 6:
+      return 'Sq7';
+  break;
+  case 7:
+      return 'Sq8';
+      
+  break;
+     case 8:
+      return 'Sq9';
+  break;
+  }
+};
+  if ((comp1 && comp2) && (!sq3)) {
+  return 'Sq3'
+} else if ((comp1 && comp3) && (!sq2)) {
+  return 'Sq2'
+} else if ((comp2 && comp3) && (!sq1)) {
+  return 'Sq1'
+} else if ((comp4 && comp5) && (!sq6)) {
+  return 'Sq6'
+} else if ((comp4 && comp6) && (!sq5)) {
+  return 'Sq5'
+} else if ((comp5 && comp6) && (!sq4)) {
+  return 'Sq4'
+ } else if ((comp7 && comp8) && (!sq9)) {
+  return 'Sq9'
+} else if ((comp7 && comp9) && (!sq8)) {
+  return 'Sq8'
+} else if ((comp8 && comp9) && (!sq7)) {
+  return 'Sq7'
+} else if ((comp1 && comp5 ) && (!sq9)) {
+  return 'Sq9'
+} else if ((comp1 && comp9) && (!sq5)) {
+  return 'Sq5'
+} else if ((comp5 && comp9) && (!sq1)) {
+  return 'Sq1'
+} else if ((comp3 && comp5) && (!sq7)) {
+  return 'Sq7'
+} else if ((comp3 && comp7) && (!sq5)) {
+  return 'Sq5'
+} else if ((comp5 && comp7) && (!sq3)) {
+  return 'Sq3'
+} else if ((comp1 && comp4) && (!sq7)) {
+return 'Sq7'
+} else if ((comp4 && comp7) && (!sq1)) {
+return 'Sq1'
+} else if ((comp7 && comp1) && (!sq4)) {
+return 'Sq4'
+} else if ((comp2 && comp5) && (!sq8)) {
+return 'Sq8'
+} else if ((comp5 && comp8) && (!sq2)) {
+return 'Sq2'
+} else if ((comp8 && comp2) && (!sq5)) {
+return 'Sq5'
+} else if ((comp3 && comp6) && (!sq9)) {
+return 'Sq9'
+} else if ((comp6 && comp9) && (!sq3)) {
+return 'Sq3'
+} else if ((comp9 && comp3) && (!sq6)) {
+return 'Sq6'
+} else {
+  if ((sq1 && sq2) && (!comp3)) {
+  return 'Sq3'
+} else if ((sq1 && sq3) && (!comp2)) {
+  return 'Sq2'
+} else if ((sq2 && sq3) && (!comp1)) {
+  return 'Sq1'
+} else if ((sq4 && sq5) && (!comp6)) {
+  return 'Sq6'
+} else if ((sq4 && sq6) && (!comp5)) {
+  return 'Sq5'
+} else if ((sq5 && sq6) && (!comp4)) {
+  return 'Sq4'
+ } else if ((sq7 && sq8) && (!comp9)) {
+  return 'Sq9'
+} else if ((sq7 && sq9) && (!comp8)) {
+  return 'Sq8'
+} else if ((sq8 && sq9) && (!comp7)) {
+  return 'Sq7'
+} else if ((sq1 && sq5 ) && (!comp9)) {
+  return 'Sq9'
+} else if ((sq1 && sq9) && (!comp5)) {
+  return 'Sq5'
+} else if ((sq5 && sq9) && (!comp1)) {
+  return 'Sq1'
+} else if ((sq3 && sq5) && (!comp7)) {
+  return 'Sq7'
+} else if ((sq3 && sq7) && (!comp5)) {
+  return 'Sq5'
+} else if ((sq5 && sq7) && (!comp3)) {
+  return 'Sq3'
+} else if ((sq1 && sq4) && (!comp7)) {
+return 'Sq7'
+} else if ((sq4 && sq7) && (!comp1)) {
+return 'Sq1'
+} else if ((sq7 && sq1) && (!comp4)) {
+return 'Sq4'
+} else if ((sq2 && sq5) && (!comp8)) {
+return 'Sq8'
+} else if ((sq5 && sq8) && (!comp2)) {
+return 'Sq2'
+} else if ((sq8 && sq2) && (!comp5)) {
+return 'Sq5'
+} else if ((sq3 && sq6) && (!comp9)) {
+return 'Sq9'
+} else if ((sq6 && sq9) && (!comp3)) {
+return 'Sq3'
+} else if ((sq9 && sq3) && (!comp6)) {
+return 'Sq6'
+} else {
+  if ((comp1 && !comp2 && !comp3 && !sq2 && !sq3) || (comp3 && !comp1 && !comp2 && !sq1 && !sq2)) {
+    return 'Sq2'
+  } else if (comp2 && !comp1 && !comp3 && !sq1 && !sq3) {
+    return 'Sq1'
+  } else if ((comp4 && !comp5 && !comp6 && !sq5 && !sq6) || (comp6 && !comp4 && !comp5 && !sq4 && !sq5)) {
+  return 'Sq5'
+  } else if (comp5 && !comp4 && !comp6 && !sq4 && !sq6) {
+    return 'Sq4'
+  } else if ((comp7 && !comp8 && !comp9 && !sq8 && !sq9) || (comp9 && !comp7 && !comp8 && !sq7 && !sq8)) {
+  return 'Sq8'
+  } else if (comp8 && !comp7 && !comp9 && !sq7 && !sq9) {
+    return 'Sq7'
+  } else if ((comp1 && !comp4 && !comp7 && !sq4 && !sq7) || (comp7 && !comp1 && !comp4 && !sq1 && !sq4)) {
+  return 'Sq4'
+  } else if (comp4 && !comp1 && !comp7 && !sq1 && !sq7) {
+    return 'Sq1'
+  } else if ((comp2 && !comp5 && !comp8 && !sq5 && !sq8) || (comp8 && !comp2 && !comp5 && !sq2 && !sq5)) {
+  return 'Sq5'
+  } else if (comp5 && !comp2 && !comp8 && !sq2 && !sq8) {
+    return 'Sq2'
+  } else if ((comp3 && !comp6 && !comp9 && !sq6 && !sq9) || (comp9 && !comp3 && !comp6 && !sq3 && !sq6)) {
+  return 'Sq6'
+  } else if (comp6 && !comp3 && !comp9 && !sq3 && !sq9) {
+    return 'Sq3'
+  } else if ((comp1 && !comp5 && !comp9 && !sq5 && !sq9) || (comp9 && !comp1 && !comp5 && !sq1 && !sq5)) {
+  return 'Sq5'
+  } else if (comp5 && !comp1 && !comp9 && !sq1 && !sq9) {
+    return 'Sq1'
+  } else if ((comp3 && !comp5 && !comp7 && !sq5 && !sq7) || (comp7 && !comp3 && !comp5 && !sq3 && !sq5)) {
+  return 'Sq5'
+  } else if (comp5 && !comp3 && !comp7 && !sq3 && !sq7) {
+    return 'Sq3'
+  } else {
+return getComputerChoice(choice);
+}
+}
+
+}
+
+
+
+}
+    };
+
+
+
+</script>
+</body>
+
+</html>
